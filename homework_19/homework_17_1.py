@@ -22,8 +22,8 @@ def resize(image, length, width):
         size2 = int(size1 * (size[1] / size[0]))
         new_image_2 = image.resize((size1, size2))
         return new_image_2
-    else:
-        pass
+    elif length is None and width is None:
+        raise ValueError
 
 
 class ImageResize(QWidget):
@@ -37,7 +37,10 @@ class ImageResize(QWidget):
         button1 = QPushButton('Конвертировать', self)
         button1.move(70, 160)
         button1.resize(150, 30)
-        button1.clicked.connect(resize)
+        try:
+            button1.clicked.connect(resize)
+        except ValueError:
+            print('Введите данные!!!')
 
 
         self.setGeometry(800, 300, 300, 220)
