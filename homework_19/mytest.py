@@ -15,7 +15,8 @@ class TestMyCode(unittest.TestCase):
         self.assertEqual((100, 100), result_1.size)
         self.assertEqual((100, 75), result_2.size)
         self.assertEqual((133, 100), result_3.size)
-        self.assertRaises(ValueError, homework_19.homework_17_1.resize,image, None, None )
+        self.assertRaises(ValueError, homework_19.homework_17_1.resize, image,
+                          None, None )
 
     def test_date(self):
         with patch('homework_19.tasks.datetime') as mock_date:
